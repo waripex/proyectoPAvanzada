@@ -11,19 +11,22 @@ import java.util.*;
 public class Dia {
     private String mes; // mes correspondiente
     private int nDia; //numero del dia
-    private ArrayList<Reunion> reuniones;
-    private HashMap<String, Reunion> reunionXDia;
+    private ArrayList<Reunion> reuniones;// coleccion de reuniones
+    private HashMap<String, Reunion> reunionXDia; // reuniones por dia
     
+    //instancia de HashMap y ArrayList
     public Dia(){
         reuniones = new ArrayList();
         reunionXDia = new HashMap();
     }
     
+    //instancia de atributos
     public Dia(String mes,int nDia){
         this.mes = mes;
         this.nDia = nDia;
     }
     
+    // instancia de atributos, ArrayList y HashMap 
     public Dia(int nDia, String mes){
         this.mes = mes;
         this.nDia = nDia;
@@ -32,6 +35,8 @@ public class Dia {
         reunionXDia = new HashMap();
     }
 
+    //setters y getters de los atributos
+    
     public String getMes() {
         return mes;
     }
@@ -48,6 +53,7 @@ public class Dia {
         this.nDia = nDia;
     }
     
+    //booleano para comprobar la existencia de una reunion
     public boolean agregarReunion(Reunion rr){
         int i;
         if(reunionXDia.containsKey(rr.getNombre())){
