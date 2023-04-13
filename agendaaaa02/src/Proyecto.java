@@ -97,39 +97,32 @@ public class Proyecto {
         
         BufferedReader aa = new BufferedReader (new InputStreamReader(System.in) );
         int i=1;
+        
+        System.out.println("ingrese el mes: ");
+        String answer = aa.readLine();
+        //instancia del dia
+        Dia rr = new Dia();
+        rr.setMes(answer);
+        System.out.println("ingrese el dia: ");
+        rr.setNDia(Integer.parseInt(aa.readLine()));
+        reunion.put(rr.getMes(), rr);
+        //se crea mas de una reunion por dia, si el usuario quiere
         while(true){
-            
-            System.out.println("ingrese el mes: "+(i)+"| Escriba x para salir");
-            String answer = aa.readLine();
+            System.out.println("ingrese el nombre de la Reunion: "+(i)+"| Presione x para salir");
+            answer = aa.readLine();
             if (answer.equals("x" )) break;
-            Dia rr = new Dia();
-            rr.setMes(answer);
-            System.out.println("ingrese el dia: "+(i));
-            rr.setNDia(Integer.parseInt(aa.readLine()));
-            reunion.put(rr.getMes(), rr);
-            
+            //instancia de la reunion
             Reunion ss = new Reunion();
-            System.out.println("ingrese el nombre de la Reunion: ");
-            answer = aa.readLine();
             ss.setNombre(answer);
-            System.out.println("ingrese la prioridad: ");
-            ss.setPrioridad(Integer.parseInt(aa.readLine()));
             reunion.put(ss.getNombre(),rr);
-            
-            
-            dias.add(rr);
-            //reuD.add(ss);
-            //tenemos que arreglar esta parte para que tambien pida lo de reunion
-            
-            /*Reunion ss = new Reunion();
-            System.out.println("ingrese el nombre de la Reunion: ");
-            answer = aa.readLine();
-            ss.setNombre(answer);
+            String name = ss.getNombre();
             System.out.println("ingrese la prioridad: ");
             ss.setPrioridad(Integer.parseInt(aa.readLine()));
-            reunion.put(ss.getNombre(),ss);
-            reuD.add(ss);*/
-        }
+            int priori = ss.getPrioridad();
+            rr.agregarReunion(name,priori );//añadimos la reunion creada al dia
+            i++;
+        }  
+        dias.add(rr);// cerramos el dia, con los datos guardados
     }
     
     public static void listarReuniones(){
