@@ -11,6 +11,7 @@ import java.util.*;
 
 public class Proyecto {
     static ArrayList<Dia> dias = new ArrayList();
+    static ArrayList<Reunion> reuD = new ArrayList();
     static HashMap<String,Dia> reunion = new HashMap();
     
     public static void main(String[] args) throws IOException{
@@ -98,37 +99,47 @@ public class Proyecto {
         int i=1;
         while(true){
             
-            System.out.println("ingrese el mes: "+(i)+"| Escriba Exit para salir ");
+            System.out.println("ingrese el mes: "+(i)+"| Escriba x para salir");
             String answer = aa.readLine();
-            if (answer.equals("Exit")) break;
+            if (answer.equals("x" )) break;
             Dia rr = new Dia();
             rr.setMes(answer);
             System.out.println("ingrese el dia: "+(i));
             rr.setNDia(Integer.parseInt(aa.readLine()));
             reunion.put(rr.getMes(), rr);
-            dias.add(rr);
             
-            //tenemos que arreglar esta parte para que tambien pida lo de reunion
-            
-            Reunion ss = new Reunion(nom,prioridad);
+            Reunion ss = new Reunion();
             System.out.println("ingrese el nombre de la Reunion: ");
             answer = aa.readLine();
             ss.setNombre(answer);
             System.out.println("ingrese la prioridad: ");
             ss.setPrioridad(Integer.parseInt(aa.readLine()));
-            reunion.put(ss.getNombre(), rr);
-            dias.add(ss);
+            reunion.put(ss.getNombre(),rr);
+            
+            
+            dias.add(rr);
+            //reuD.add(ss);
+            //tenemos que arreglar esta parte para que tambien pida lo de reunion
+            
+            /*Reunion ss = new Reunion();
+            System.out.println("ingrese el nombre de la Reunion: ");
+            answer = aa.readLine();
+            ss.setNombre(answer);
+            System.out.println("ingrese la prioridad: ");
+            ss.setPrioridad(Integer.parseInt(aa.readLine()));
+            reunion.put(ss.getNombre(),ss);
+            reuD.add(ss);*/
         }
     }
     
     public static void listarReuniones(){
         //mostrar los dias y sus reuniones
-        System.out.println("List de reuniones");
+        System.out.println("Lista de reuniones");
         for(int i =0;i<dias.size();i++){
             Dia dd = dias.get(i);
             System.out.println("MES: "+dd.getMes()+"| Dia: "+dd.getNDia());
             System.out.println("Sus reuniones son: ");
-            dd.listarReuniones();
+            dd.listarReunione();
         }
     }
     
@@ -143,6 +154,6 @@ public class Proyecto {
         Dia dd = (Dia)reunion.get(diaSemana);
         System.out.println("Reuniones del dia: "+dd.getMes()+" Mes: "+dd.getNDia());
         System.out.println("Sus reuniones son: ");
-        dd.listarReuniones();
+        dd.listarReunione();
     }
 }

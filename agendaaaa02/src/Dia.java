@@ -72,9 +72,9 @@ public class Dia {
     }
 
     
-    public void listarReuniones(){
+    public void listarReunione(){
         for(int i =0;i<reuniones.size();i++){
-            System.out.println("Reunion "+(i+1)+":" +reuniones.get(i).getNombre()+" Prioridad: "+reuniones.get(i).getPrioridad());
+            System.out.println("Reunion "+(i+1)+":" +reuniones.get(i).getNombre()+"| Prioridad: "+reuniones.get(i).getPrioridad());
         }
         System.out.println("");
     }
