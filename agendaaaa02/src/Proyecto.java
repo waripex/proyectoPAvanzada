@@ -11,12 +11,12 @@ import java.util.*;
 
 public class Proyecto {
     static ArrayList<Dia> dias = new ArrayList();
-    static ArrayList<Reunion> reuD = new ArrayList();
+    //static ArrayList<Reunion> reuD = new ArrayList();
     static HashMap<String,Dia> reunion = new HashMap();
     
     public static void main(String[] args) throws IOException{
         
-
+        llenadoReuniones();
          // Menu
         System.out.println(" AGENDA");
         System.out.println(" =======");
@@ -28,7 +28,7 @@ public class Proyecto {
                            3: EXIT\n""");
         
             //Metodo llenado de reuniones pre-registradas
-            llenadoReuniones();
+            
         
             // Eleccion de opciones 
             BufferedReader cc = new BufferedReader (new InputStreamReader(System.in) );
@@ -127,12 +127,16 @@ public class Proyecto {
     
     public static void listarReuniones(){
         //mostrar los dias y sus reuniones
+        int k = 1;
         System.out.println("Lista de reuniones");
         for(int i =0;i<dias.size();i++){
             Dia dd = dias.get(i);
             System.out.println("MES: "+dd.getMes()+"| Dia: "+dd.getNDia());
+            //System.out.println(k);
             System.out.println("Sus reuniones son: ");
             dd.listarReunione();
+            
+            //k++;
         }
     }
     

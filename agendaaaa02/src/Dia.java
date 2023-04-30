@@ -11,7 +11,7 @@ import java.util.*;
 public class Dia {
     private String mes; // mes correspondiente
     private int nDia; //numero del dia
-    private ArrayList<Reunion> reuniones;// coleccion de reuniones
+    private ArrayList<Reunion> reuniones = new ArrayList();// coleccion de reuniones
     private HashMap<String, Reunion> reunionXDia; // reuniones por dia
     
     //instancia de HashMap y ArrayList
