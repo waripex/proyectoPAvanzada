@@ -8,14 +8,17 @@ package com.mycompany.proyectoagenda;
 
 
 import static com.mycompany.proyectoagenda.Menu.crearMenu;
+import com.opencsv.exceptions.CsvValidationException;
 import java.io.*;
 
 
 
 public class ProyectoAgenda {
     
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException, CsvValidationException{
         // Menu
+        //VentanaAgenda interfaz = new VentanaAgenda();
+        //interfaz.main(args);
         crearMenu();
     }   
 }

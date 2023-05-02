@@ -7,7 +7,6 @@ package com.mycompany.proyectoagenda;
  * @author Cristofer Contreras
  */
 
-import com.mycompany.proyectoagenda.Reunion;
 import java.util.*;
 
 
@@ -56,11 +55,11 @@ public class Dia {
         this.nDia = nDia;
     }
     
+    
     //booleano para comprobar la existencia de una reunion
     public boolean agregarReunion(Reunion rr){
-        int i;
         if(reunionXDia.containsKey(rr.getNombre())){
-            System.out.println("Reunion ya existente");
+            //System.out.println("Reunion ya existente");
             return false;
         }  
         // no esta repetida la reunion
@@ -83,11 +82,47 @@ public class Dia {
         System.out.println("");
     }
     
-    public Reunion buscarReunion(String nom){
+    public void listarReuniones(boolean x){
+        if (x){
+            for(int i =0;i<reuniones.size();i++){
+                System.out.println("Reunion "+(i+1)+": " +reuniones.get(i).getNombre());
+            }
+        System.out.println("");
+            
+        }
+    }
+   
+    public void eliminarReunion(String nom){
         if(!reunionXDia.containsKey(nom)){
             System.out.println("La reunion no existe");
-            return null;
+            return;
         }
-        return reunionXDia.get(nom);
+        Reunion rr = reunionXDia.get(nom);
+        reunionXDia.remove(nom);
+        reuniones.remove(rr);
     }
+    
+    public void editarReunion(String nom, int prioridad){
+        if(!reunionXDia.containsKey(nom)){
+            System.out.println("La reunion no existe");
+            return;
+        }
+        Reunion rr = reunionXDia.get(nom);
+        rr.setPrioridad(prioridad);
+    }
+   
+    public ArrayList<Reunion> getReuniones(){
+        ArrayList<Reunion> rrs = new ArrayList<>();
+        for(int i =0;i<reuniones.size();i++){
+            String n = reuniones.get(i).getNombre();
+            int p = reuniones.get(i).getPrioridad();
+            Reunion r = new Reunion(n,p);
+            rrs.add(r);
+        }
+        
+        return rrs;
+    }
+
+    
+    
 }
